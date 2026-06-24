@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu Nombre — Análisis de Datos</title>
+<style>
+  :root {
+    --navy: #3F4D31;
+    --navy-light: #4D5D3C;
+    --wood: #1F1611;
+    --wood-light: #2B201A;
+    --cream: #F7F4ED;
+    --cream-warm: #FBF9F4;
+    --plum: #4A3548;
+    --graphite: #2E2A26;
+    --graphite-light: #7C7670;
+    --line: #DEDCD6;
+    --font-display: 'Georgia', 'Iowan Old Style', 'Palatino Linotype', serif;
+    --font-body: 'Georgia', 'Iowan Old Style', 'Palatino Linotype', serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--graphite);
+    line-height: 1.65;
+  }
+
+  /* ============ HEADER ============ */
+  header {
+    background: var(--wood);
+    color: var(--cream-warm);
+    padding: 80px 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, var(--plum) 0%, transparent 70%);
+    opacity: 0.45;
+    border-radius: 50%;
+    transform: translate(80px, -120px);
+  }
+
+  .header-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #C9B89A;
+    margin-bottom: 18px;
+    font-style: italic;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+  }
+
+  .role {
+    font-size: 19px;
+    color: #D4C9B5;
+    font-weight: 300;
+    max-width: 560px;
+    margin-bottom: 36px;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(247,247,245,0.14);
+    padding-top: 28px;
+  }
+
+  .meta-item {
+    font-size: 14px;
+  }
+
+  .meta-label {
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #A89878;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .meta-value { color: var(--cream-warm); }
+
+  /* ============ STATS STRIP ============ */
+  .stats-strip {
+    background: var(--wood-light);
+    border-top: 1px solid rgba(247,247,245,0.08);
+  }
+
+  .stats-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 28px 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 30px;
+    color: var(--cream-warm);
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: #A89878;
+    margin-top: 2px;
+  }
+
+  /* ============ MAIN ============ */
+  main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 70px 40px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--graphite-light);
+    margin-bottom: 8px;
+  }
+
+  .section-heading {
+    font-family: var(--font-display);
+    font-size: 30px;
+    color: var(--navy);
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* ============ PROJECT CARDS ============ */
+  .project {
+    border: 1px solid var(--line);
+    background: var(--cream-warm);
+    margin-bottom: 32px;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .project:hover {
+    box-shadow: 0 12px 32px rgba(46,42,38,0.1);
+    transform: translateY(-2px);
+  }
+
+  .project-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 32px 32px 0;
+    gap: 24px;
+  }
+
+  .project-number {
+    font-family: var(--font-display);
+    font-size: 12px;
+    color: var(--navy);
+    letter-spacing: 1px;
+  }
+
+  .project-title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--navy);
+    margin: 6px 0 10px;
+  }
+
+  .project-summary {
+    color: var(--graphite-light);
+    font-size: 15px;
+    max-width: 600px;
+  }
+
+  .project-thumb {
+    width: 130px;
+    height: 90px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .project-thumb svg { width: 100%; height: 100%; }
+
+  .project-body {
+    padding: 24px 32px 32px;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+
+  .grid-label {
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .grid-text {
+    font-size: 14px;
+    color: var(--graphite);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .tag {
+    font-family: var(--font-display);
+    font-size: 11px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    color: var(--graphite);
+    padding: 3px 9px;
+    border-radius: 3px;
+  }
+
+  .project-footer {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .finding {
+    font-size: 14px;
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .finding-label {
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--graphite-light);
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 400;
+  }
+
+  .btn {
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-decoration: none;
+    border: 1px solid var(--navy);
+    padding: 10px 20px;
+    border-radius: 3px;
+    transition: background 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .btn:hover {
+    background: var(--navy);
+    color: var(--cream);
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--wood);
+    color: #A89878;
+    padding: 50px 40px;
+    text-align: center;
+  }
+
+  footer .footer-inner {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  footer a {
+    color: var(--cream-warm);
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 16px;
+    font-size: 13px;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 640px) {
+    header { padding: 50px 24px 40px; }
+    h1 { font-size: 36px; }
+    .header-meta { gap: 20px; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); padding: 24px; }
+    main { padding: 50px 24px; }
+    .project-top { flex-direction: column; }
+    .project-thumb { width: 100%; height: 70px; }
+    .project-grid { grid-template-columns: 1fr; gap: 18px; }
+    .project-footer { flex-direction: column; align-items: flex-start; gap: 16px; }
+  }
+
+  /* Focus visibility for accessibility */
+  a:focus-visible, .btn:focus-visible {
+    outline: 2px solid var(--navy);
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="eyebrow">Portafolio de análisis de datos</div>
+    <h1>Tu Nombre Aquí</h1>
+    <p class="role">Análisis estadístico aplicado a problemas de negocio: limpieza de datos, modelado exploratorio y comunicación de hallazgos para la toma de decisiones.</p>
+    <div class="header-meta">
+      <div class="meta-item">
+        <span class="meta-label">Ubicación</span>
+        <span class="meta-value">Monterrey, México</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Stack principal</span>
+        <span class="meta-value">Python · pandas · SQL · scikit-learn</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Contacto</span>
+        <span class="meta-value">tu.email@ejemplo.com</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-num">4</div>
+      <div class="stat-label">Proyectos documentados</div>
+    </div>
+    <div>
+      <div class="stat-num">~50K</div>
+      <div class="stat-label">Registros analizados</div>
+    </div>
+    <div>
+      <div class="stat-num">3</div>
+      <div class="stat-label">Sectores cubiertos</div>
+    </div>
+    <div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Código reproducible</div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="section-title">Trabajo seleccionado</div>
+  <h2 class="section-heading">Estudios de caso</h2>
+
+  <!-- PROYECTO 1 -->
+  <div class="project">
+    <div class="project-top">
+      <div>
+        <div class="project-number">CASO 01</div>
+        <div class="project-title">Patrones de consumo regional de bebidas</div>
+        <p class="project-summary">Análisis exploratorio de ventas por región para identificar estacionalidad y diferencias de consumo entre zonas urbanas y rurales.</p>
+      </div>
+      <div class="project-thumb">
+        <svg viewBox="0 0 130 90" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="10,70 30,55 50,60 70,30 90,40 110,15" fill="none" stroke="#F7F7F5" stroke-width="2"/>
+          <circle cx="110" cy="15" r="3" fill="#F7F7F5"/>
+        </svg>
+      </div>
+    </div>
+    <div class="project-body">
+      <div class="project-grid">
+        <div>
+          <div class="grid-label">Problema</div>
+          <div class="grid-text">¿Qué factores explican la variación de ventas entre regiones?</div>
+        </div>
+        <div>
+          <div class="grid-label">Método</div>
+          <div class="grid-text">Limpieza de datos, análisis de series de tiempo, segmentación por clúster geográfico.</div>
+        </div>
+        <div>
+          <div class="grid-label">Herramientas</div>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">pandas</span>
+            <span class="tag">matplotlib</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-footer">
+        <div>
+          <span class="finding-label">Hallazgo principal</span>
+          <span class="finding">Las zonas urbanas muestran 23% más variabilidad estacional</span>
+        </div>
+        <a href="#" class="btn">Ver notebook →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROYECTO 2 -->
+  <div class="project">
+    <div class="project-top">
+      <div>
+        <div class="project-number">CASO 02</div>
+        <div class="project-title">Segmentación de clientes por comportamiento de compra</div>
+        <p class="project-summary">Construcción de perfiles de cliente a partir de variables de frecuencia, ticket promedio y categorías preferidas.</p>
+      </div>
+      <div class="project-thumb">
+        <svg viewBox="0 0 130 90" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="45" r="18" fill="none" stroke="#F7F7F5" stroke-width="2"/>
+          <circle cx="85" cy="30" r="11" fill="none" stroke="#F7F7F5" stroke-width="2" opacity="0.6"/>
+          <circle cx="90" cy="60" r="8" fill="none" stroke="#F7F7F5" stroke-width="2" opacity="0.4"/>
+        </svg>
+      </div>
+    </div>
+    <div class="project-body">
+      <div class="project-grid">
+        <div>
+          <div class="grid-label">Problema</div>
+          <div class="grid-text">¿Cómo agrupar clientes para campañas más precisas?</div>
+        </div>
+        <div>
+          <div class="grid-label">Método</div>
+          <div class="grid-text">Análisis estadístico descriptivo, clustering (K-means), validación con métricas de silueta.</div>
+        </div>
+        <div>
+          <div class="grid-label">Herramientas</div>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">scikit-learn</span>
+            <span class="tag">seaborn</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-footer">
+        <div>
+          <span class="finding-label">Hallazgo principal</span>
+          <span class="finding">3 segmentos explican el 68% del valor total de compra</span>
+        </div>
+        <a href="#" class="btn">Ver notebook →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROYECTO 3 -->
+  <div class="project">
+    <div class="project-top">
+      <div>
+        <div class="project-number">CASO 03</div>
+        <div class="project-title">Impacto de promociones en volumen de venta</div>
+        <p class="project-summary">Evaluación estadística del efecto real de campañas promocionales frente a la venta orgánica esperada.</p>
+      </div>
+      <div class="project-thumb">
+        <svg viewBox="0 0 130 90" xmlns="http://www.w3.org/2000/svg">
+          <rect x="15" y="50" width="14" height="30" fill="#F7F7F5" opacity="0.5"/>
+          <rect x="40" y="35" width="14" height="45" fill="#F7F7F5" opacity="0.7"/>
+          <rect x="65" y="20" width="14" height="60" fill="#F7F7F5"/>
+          <rect x="90" y="45" width="14" height="35" fill="#F7F7F5" opacity="0.6"/>
+        </svg>
+      </div>
+    </div>
+    <div class="project-body">
+      <div class="project-grid">
+        <div>
+          <div class="grid-label">Problema</div>
+          <div class="grid-text">¿Las promociones generan ventas incrementales o solo adelantan consumo?</div>
+        </div>
+        <div>
+          <div class="grid-label">Método</div>
+          <div class="grid-text">Comparación pre/post, prueba de hipótesis, control de variables estacionales.</div>
+        </div>
+        <div>
+          <div class="grid-label">Herramientas</div>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">scipy</span>
+            <span class="tag">statsmodels</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-footer">
+        <div>
+          <span class="finding-label">Hallazgo principal</span>
+          <span class="finding">Solo el 40% del incremento es venta neta incremental</span>
+        </div>
+        <a href="#" class="btn">Ver notebook →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROYECTO 4 -->
+  <div class="project">
+    <div class="project-top">
+      <div>
+        <div class="project-number">CASO 04</div>
+        <div class="project-title">Detección de anomalías en inventario</div>
+        <p class="project-summary">Identificación de patrones atípicos en niveles de inventario que anticipan quiebres de stock.</p>
+      </div>
+      <div class="project-thumb">
+        <svg viewBox="0 0 130 90" xmlns="http://www.w3.org/2000/svg">
+          <line x1="10" y1="45" x2="120" y2="45" stroke="#F7F7F5" stroke-width="1" opacity="0.4"/>
+          <circle cx="30" cy="48" r="3" fill="#F7F7F5" opacity="0.5"/>
+          <circle cx="55" cy="42" r="3" fill="#F7F7F5" opacity="0.5"/>
+          <circle cx="80" cy="20" r="5" fill="#F7F7F5"/>
+          <circle cx="100" cy="47" r="3" fill="#F7F7F5" opacity="0.5"/>
+        </svg>
+      </div>
+    </div>
+    <div class="project-body">
+      <div class="project-grid">
+        <div>
+          <div class="grid-label">Problema</div>
+          <div class="grid-text">¿Se pueden anticipar quiebres de stock antes de que ocurran?</div>
+        </div>
+        <div>
+          <div class="grid-label">Método</div>
+          <div class="grid-text">Análisis de outliers, umbrales estadísticos dinámicos, visualización de series temporales.</div>
+        </div>
+        <div>
+          <div class="grid-label">Herramientas</div>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">numpy</span>
+            <span class="tag">plotly</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-footer">
+        <div>
+          <span class="finding-label">Hallazgo principal</span>
+          <span class="finding">Anticipación promedio de 6 días antes del quiebre</span>
+        </div>
+        <a href="#" class="btn">Ver notebook →</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>Tu Nombre Aquí — Análisis de Datos</div>
+    <div class="footer-links">
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Correo</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
