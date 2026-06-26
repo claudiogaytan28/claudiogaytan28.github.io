@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio Claudio Gaytán</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231F1611'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' fill='%23F7F4ED' text-anchor='middle'%3ECG%3C/text%3E%3C/svg%3E">
 <title>Tu Nombre — Análisis de Datos</title>
 <style>
   :root {
@@ -283,6 +285,12 @@
     font-weight: 400;
   }
 
+  .btn-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
   .btn {
     font-family: var(--font-display);
     font-size: 12px;
@@ -300,6 +308,16 @@
   .btn:hover {
     background: var(--navy);
     color: var(--cream);
+  }
+
+  .btn-solid {
+    background: var(--navy);
+    color: var(--cream-warm);
+  }
+
+  .btn-solid:hover {
+    background: var(--navy-light);
+    color: var(--cream-warm);
   }
 
   /* ============ FOOTER ============ */
@@ -343,6 +361,8 @@
     .project-thumb { width: 100%; height: 70px; }
     .project-grid { grid-template-columns: 1fr; gap: 18px; }
     .project-footer { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .btn-group { width: 100%; }
+    .btn-group .btn { flex: 1; text-align: center; }
   }
 
   /* Focus visibility for accessibility */
@@ -357,9 +377,13 @@
 <header>
   <div class="header-inner">
     <div class="eyebrow">Portafolio de análisis de datos</div>
-    <h1>Tu Nombre Aquí</h1>
+    <h1>Claudio Gaytán</h1>
     <p class="role">Análisis estadístico aplicado a problemas de negocio: limpieza de datos, modelado exploratorio y comunicación de hallazgos para la toma de decisiones.</p>
     <div class="header-meta">
+      <div class="meta-item">
+        <span class="meta-label">Formación</span>
+        <span class="meta-value">Lic. en Actuaría (2023)</span>
+      </div>
       <div class="meta-item">
         <span class="meta-label">Ubicación</span>
         <span class="meta-value">Monterrey, México</span>
@@ -370,7 +394,7 @@
       </div>
       <div class="meta-item">
         <span class="meta-label">Contacto</span>
-        <span class="meta-value">tu.email@ejemplo.com</span>
+        <span class="meta-value">claudiogaytan28@gmail.com</span>
       </div>
     </div>
   </div>
@@ -406,52 +430,8 @@
     <div class="project-top">
       <div>
         <div class="project-number">CASO 01</div>
-        <div class="project-title">Patrones de consumo regional de bebidas</div>
-        <p class="project-summary">Análisis exploratorio de ventas por región para identificar estacionalidad y diferencias de consumo entre zonas urbanas y rurales.</p>
-      </div>
-      <div class="project-thumb">
-        <svg viewBox="0 0 130 90" xmlns="http://www.w3.org/2000/svg">
-          <polyline points="10,70 30,55 50,60 70,30 90,40 110,15" fill="none" stroke="#F7F7F5" stroke-width="2"/>
-          <circle cx="110" cy="15" r="3" fill="#F7F7F5"/>
-        </svg>
-      </div>
-    </div>
-    <div class="project-body">
-      <div class="project-grid">
-        <div>
-          <div class="grid-label">Problema</div>
-          <div class="grid-text">¿Qué factores explican la variación de ventas entre regiones?</div>
-        </div>
-        <div>
-          <div class="grid-label">Método</div>
-          <div class="grid-text">Limpieza de datos, análisis de series de tiempo, segmentación por clúster geográfico.</div>
-        </div>
-        <div>
-          <div class="grid-label">Herramientas</div>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">pandas</span>
-            <span class="tag">matplotlib</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-footer">
-        <div>
-          <span class="finding-label">Hallazgo principal</span>
-          <span class="finding">Las zonas urbanas muestran 23% más variabilidad estacional</span>
-        </div>
-        <a href="#" class="btn">Ver notebook →</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROYECTO 2 -->
-  <div class="project">
-    <div class="project-top">
-      <div>
-        <div class="project-number">CASO 02</div>
-        <div class="project-title">Segmentación de clientes por comportamiento de compra</div>
-        <p class="project-summary">Construcción de perfiles de cliente a partir de variables de frecuencia, ticket promedio y categorías preferidas.</p>
+        <div class="project-title">Segmentación de clientes en transacciones retail</div>
+        <p class="project-summary">Identificación de perfiles de cliente mediante clustering, a partir de frecuencia de compra, gasto total y comportamiento frente a descuentos y promociones.</p>
       </div>
       <div class="project-thumb">
         <svg viewBox="0 0 130 90" xmlns="http://www.w3.org/2000/svg">
@@ -465,17 +445,70 @@
       <div class="project-grid">
         <div>
           <div class="grid-label">Problema</div>
-          <div class="grid-text">¿Cómo agrupar clientes para campañas más precisas?</div>
+          <div class="grid-text">¿Qué tipos de clientes existen dentro del negocio, según su comportamiento real de compra?</div>
         </div>
         <div>
           <div class="grid-label">Método</div>
-          <div class="grid-text">Análisis estadístico descriptivo, clustering (K-means), validación con métricas de silueta.</div>
+          <div class="grid-text">Feature engineering a nivel cliente, escalado de variables, clustering con KMeans y visualización con PCA.</div>
         </div>
         <div>
           <div class="grid-label">Herramientas</div>
           <div class="tags">
             <span class="tag">Python</span>
+            <span class="tag">pandas</span>
             <span class="tag">scikit-learn</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-footer">
+        <div>
+          <span class="finding-label">Hallazgo principal</span>
+          <span class="finding">El ticket promedio es estable entre segmentos; la frecuencia de compra es lo que realmente diferencia el valor del cliente</span>
+        </div>
+        <div class="btn-group">
+          <a href="https://github.com/claudiogaytan28/customer-segmentation-retail" target="_blank" class="btn btn-solid">Resumen ejecutivo →</a>
+          <a href="https://github.com/claudiogaytan28/customer-segmentation-retail/blob/main/01_customer_segmentation.ipynb" target="_blank" class="btn">Ver notebook →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROYECTO 2 -->
+  <div class="project">
+    <div class="project-top">
+      <div>
+        <div class="project-number">CASO 02</div>
+        <div class="project-title">Sistema de recomendación de productos en retail</div>
+        <p class="project-summary">Identificación de productos que se compran juntos mediante market basket analysis, para generar recomendaciones por producto.</p>
+      </div>
+      <div class="project-thumb">
+        <svg viewBox="0 0 130 90" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="35" cy="45" r="6" fill="#F7F7F5"/>
+          <circle cx="75" cy="25" r="6" fill="#F7F7F5"/>
+          <circle cx="95" cy="55" r="6" fill="#F7F7F5"/>
+          <circle cx="60" cy="68" r="6" fill="#F7F7F5"/>
+          <line x1="35" y1="45" x2="75" y2="25" stroke="#F7F7F5" stroke-width="1.5" opacity="0.6"/>
+          <line x1="35" y1="45" x2="60" y2="68" stroke="#F7F7F5" stroke-width="1.5" opacity="0.6"/>
+          <line x1="75" y1="25" x2="95" y2="55" stroke="#F7F7F5" stroke-width="1.5" opacity="0.6"/>
+          <line x1="60" y1="68" x2="95" y2="55" stroke="#F7F7F5" stroke-width="1.5" opacity="0.3"/>
+        </svg>
+      </div>
+    </div>
+    <div class="project-body">
+      <div class="project-grid">
+        <div>
+          <div class="grid-label">Problema</div>
+          <div class="grid-text">Dado un producto que compra un cliente, ¿qué otros productos se le deberían recomendar?</div>
+        </div>
+        <div>
+          <div class="grid-label">Método</div>
+          <div class="grid-text">Market basket analysis con Apriori, reglas de asociación y validación de estabilidad con múltiples muestras.</div>
+        </div>
+        <div>
+          <div class="grid-label">Herramientas</div>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">mlxtend</span>
             <span class="tag">seaborn</span>
           </div>
         </div>
@@ -483,9 +516,12 @@
       <div class="project-footer">
         <div>
           <span class="finding-label">Hallazgo principal</span>
-          <span class="finding">3 segmentos explican el 68% del valor total de compra</span>
+          <span class="finding">Los patrones de co-compra son estables entre muestras, aunque débiles en fuerza de asociación</span>
         </div>
-        <a href="#" class="btn">Ver notebook →</a>
+        <div class="btn-group">
+          <a href="https://github.com/claudiogaytan28/product-recommendation-system/tree/main" target="_blank" class="btn btn-solid">Resumen ejecutivo →</a>
+          <a href="https://github.com/claudiogaytan28/product-recommendation-system/blob/main/02_product_recommendation_system.ipynb" target="_blank" class="btn">Ver notebook →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -531,7 +567,10 @@
           <span class="finding-label">Hallazgo principal</span>
           <span class="finding">Solo el 40% del incremento es venta neta incremental</span>
         </div>
-        <a href="#" class="btn">Ver notebook →</a>
+        <div class="btn-group">
+          <a href="#" class="btn btn-solid">Resumen ejecutivo →</a>
+          <a href="#" class="btn">Ver notebook →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -578,7 +617,10 @@
           <span class="finding-label">Hallazgo principal</span>
           <span class="finding">Anticipación promedio de 6 días antes del quiebre</span>
         </div>
-        <a href="#" class="btn">Ver notebook →</a>
+        <div class="btn-group">
+          <a href="#" class="btn btn-solid">Resumen ejecutivo →</a>
+          <a href="#" class="btn">Ver notebook →</a>
+        </div>
       </div>
     </div>
   </div>
