@@ -264,8 +264,8 @@
     padding-top: 20px;
     border-top: 1px solid var(--line);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 16px;
   }
 
   .finding {
@@ -311,12 +311,12 @@
   }
 
   .btn-solid {
-    background: var(--navy);
-    color: var(--cream-warm);
+    background: transparent;
+    color: var(--navy);
   }
 
   .btn-solid:hover {
-    background: var(--navy-light);
+    background: var(--navy);
     color: var(--cream-warm);
   }
 
@@ -360,7 +360,7 @@
     .project-top { flex-direction: column; }
     .project-thumb { width: 100%; height: 70px; }
     .project-grid { grid-template-columns: 1fr; gap: 18px; }
-    .project-footer { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .project-footer { gap: 14px; }
     .btn-group { width: 100%; }
     .btn-group .btn { flex: 1; text-align: center; }
   }
@@ -467,7 +467,7 @@
         </div>
         <div class="btn-group">
           <a href="https://github.com/claudiogaytan28/customer-segmentation-retail" target="_blank" class="btn btn-solid">Resumen ejecutivo →</a>
-          <a href="https://github.com/claudiogaytan28/customer-segmentation-retail/blob/main/01_customer_segmentation.ipynb" target="_blank" class="btn">Ver notebook →</a>
+          <a href="https://nbviewer.org/github/claudiogaytan28/customer-segmentation-retail/blob/main/01_customer_segmentation.ipynb" target="_blank" class="btn">Ver notebook →</a>
         </div>
       </div>
     </div>
@@ -520,7 +520,7 @@
         </div>
         <div class="btn-group">
           <a href="https://github.com/claudiogaytan28/product-recommendation-system/tree/main" target="_blank" class="btn btn-solid">Resumen ejecutivo →</a>
-          <a href="https://github.com/claudiogaytan28/product-recommendation-system/blob/main/02_product_recommendation_system.ipynb" target="_blank" class="btn">Ver notebook →</a>
+          <a href="https://nbviewer.org/github/claudiogaytan28/product-recommendation-system/blob/main/02_product_recommendation_system.ipynb" target="_blank" class="btn">Ver notebook →</a>
         </div>
       </div>
     </div>
