@@ -5,7 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portafolio Claudio Gaytán</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231F1611'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' fill='%23F7F4ED' text-anchor='middle'%3ECG%3C/text%3E%3C/svg%3E">
-<title>Tu Nombre — Análisis de Datos</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q76YQH1RND"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q76YQH1RND');
+</script>
 <style>
   :root {
     --navy: #3F4D31;
@@ -320,6 +326,27 @@
     color: var(--cream-warm);
   }
 
+  .btn-nbviewer {
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background: var(--plum);
+    color: var(--cream-warm);
+    text-decoration: none;
+    border: 1px solid var(--plum);
+    padding: 10px 20px;
+    border-radius: 3px;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .btn-nbviewer:hover {
+    background: #F4DFA8;
+    border-color: #F4DFA8;
+    color: var(--plum);
+  }
+
   /* ============ FOOTER ============ */
   footer {
     background: var(--wood);
@@ -362,7 +389,7 @@
     .project-grid { grid-template-columns: 1fr; gap: 18px; }
     .project-footer { gap: 14px; }
     .btn-group { width: 100%; }
-    .btn-group .btn { flex: 1; text-align: center; }
+    .btn-group .btn, .btn-group .btn-nbviewer { flex: 1; text-align: center; }
   }
 
   /* Focus visibility for accessibility */
@@ -467,7 +494,8 @@
         </div>
         <div class="btn-group">
           <a href="https://github.com/claudiogaytan28/customer-segmentation-retail" target="_blank" class="btn btn-solid">Resumen ejecutivo →</a>
-          <a href="https://nbviewer.org/github/claudiogaytan28/customer-segmentation-retail/blob/main/01_customer_segmentation.ipynb" target="_blank" class="btn">Ver notebook →</a>
+          <a href="https://github.com/claudiogaytan28/customer-segmentation-retail/blob/main/01_customer_segmentation.ipynb" target="_blank" class="btn">Ver notebook (GitHub) →</a>
+          <a href="https://nbviewer.org/github/claudiogaytan28/customer-segmentation-retail/blob/main/01_customer_segmentation.ipynb" target="_blank" class="btn-nbviewer">Ver notebook (nbviewer) →</a>
         </div>
       </div>
     </div>
@@ -520,7 +548,8 @@
         </div>
         <div class="btn-group">
           <a href="https://github.com/claudiogaytan28/product-recommendation-system/tree/main" target="_blank" class="btn btn-solid">Resumen ejecutivo →</a>
-          <a href="https://nbviewer.org/github/claudiogaytan28/product-recommendation-system/blob/main/02_product_recommendation_system.ipynb" target="_blank" class="btn">Ver notebook →</a>
+          <a href="https://github.com/claudiogaytan28/product-recommendation-system/blob/main/02_product_recommendation_system.ipynb" target="_blank" class="btn">Ver notebook (GitHub) →</a>
+          <a href="https://nbviewer.org/github/claudiogaytan28/product-recommendation-system/blob/main/02_product_recommendation_system.ipynb" target="_blank" class="btn-nbviewer">Ver notebook (nbviewer) →</a>
         </div>
       </div>
     </div>
@@ -629,11 +658,11 @@
 
 <footer>
   <div class="footer-inner">
-    <div>Tu Nombre Aquí — Análisis de Datos</div>
+    <div>Claudio Gaytán — Análisis de Datos</div>
     <div class="footer-links">
-      <a href="#">GitHub</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">Correo</a>
+      <a href="https://github.com/claudiogaytan28" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/claudio-gaytán-5ba61b214/?skipRedirect=true" target="_blank">LinkedIn</a>
+      <a href="./CV_Claudio_Gaytan.pdf" target="_blank">CV</a>
     </div>
   </div>
 </footer>
