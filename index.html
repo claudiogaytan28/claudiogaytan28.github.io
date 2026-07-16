@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portafolio Claudio Gaytán</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231F1611'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' fill='%23F7F4ED' text-anchor='middle'%3ECG%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231F1611'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='36' font-weight='bold' fill='%23F7F4ED' text-anchor='middle' dominant-baseline='auto'%3ECG%3C/text%3E%3C/svg%3E">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q76YQH1RND"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -452,11 +452,60 @@
   <div class="section-title">Trabajo seleccionado</div>
   <h2 class="section-heading">Estudios de caso</h2>
 
-  <!-- PROYECTO 1 -->
+  <!-- PROYECTO 1: CHURN -->
   <div class="project">
     <div class="project-top">
       <div>
         <div class="project-number">CASO 01</div>
+        <div class="project-title">Predicción de abandono de clientes (Churn)</div>
+        <p class="project-summary">Modelo de clasificación que predice qué clientes tienen mayor riesgo de abandonar, combinando análisis estadístico, machine learning e interpretabilidad con SHAP.</p>
+      </div>
+      <div class="project-thumb">
+        <svg viewBox="0 0 130 90" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="10,70 30,55 50,60 70,30 90,40 110,15" fill="none" stroke="#F7F7F5" stroke-width="2"/>
+          <circle cx="110" cy="15" r="3" fill="#F7F7F5"/>
+          <circle cx="70" cy="30" r="3" fill="#F7F7F5"/>
+        </svg>
+      </div>
+    </div>
+    <div class="project-body">
+      <div class="project-grid">
+        <div>
+          <div class="grid-label">Problema</div>
+          <div class="grid-text">¿Qué clientes tienen mayor riesgo de abandonar y qué factores lo explican?</div>
+        </div>
+        <div>
+          <div class="grid-label">Método</div>
+          <div class="grid-text">Análisis estadístico (Chi², Cramér's V), Regresión Logística, Random Forest, XGBoost e interpretabilidad con SHAP.</div>
+        </div>
+        <div>
+          <div class="grid-label">Herramientas</div>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">scikit-learn</span>
+            <span class="tag">SHAP</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-footer">
+        <div>
+          <span class="finding-label">Hallazgo principal</span>
+          <span class="finding">El tipo de contrato y la antigüedad del cliente son los factores más determinantes del abandono</span>
+        </div>
+        <div class="btn-group">
+          <a href="https://github.com/claudiogaytan28/churn_prediction" target="_blank" class="btn btn-solid">Resumen ejecutivo →</a>
+          <a href="https://github.com/claudiogaytan28/churn_prediction/blob/main/01_churn_prediction.ipynb" target="_blank" class="btn">Ver notebook (GitHub) →</a>
+          <a href="https://nbviewer.org/github/claudiogaytan28/churn_prediction/blob/main/01_churn_prediction.ipynb" target="_blank" class="btn-nbviewer">Ver notebook (nbviewer) →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROYECTO 2: SEGMENTACIÓN -->
+  <div class="project">
+    <div class="project-top">
+      <div>
+        <div class="project-number">CASO 02</div>
         <div class="project-title">Segmentación de clientes en transacciones retail</div>
         <p class="project-summary">Identificación de perfiles de cliente mediante clustering, a partir de frecuencia de compra, gasto total y comportamiento frente a descuentos y promociones.</p>
       </div>
@@ -494,18 +543,18 @@
         </div>
         <div class="btn-group">
           <a href="https://github.com/claudiogaytan28/customer-segmentation-retail" target="_blank" class="btn btn-solid">Resumen ejecutivo →</a>
-          <a href="https://github.com/claudiogaytan28/customer-segmentation-retail/blob/main/01_customer_segmentation.ipynb" target="_blank" class="btn">Ver notebook (GitHub) →</a>
-          <a href="https://nbviewer.org/github/claudiogaytan28/customer-segmentation-retail/blob/main/01_customer_segmentation.ipynb" target="_blank" class="btn-nbviewer">Ver notebook (nbviewer) →</a>
+          <a href="https://github.com/claudiogaytan28/customer-segmentation-retail/blob/main/02_customer_segmentation.ipynb" target="_blank" class="btn">Ver notebook (GitHub) →</a>
+          <a href="https://nbviewer.org/github/claudiogaytan28/customer-segmentation-retail/blob/main/02_customer_segmentation.ipynb" target="_blank" class="btn-nbviewer">Ver notebook (nbviewer) →</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- PROYECTO 2 -->
+  <!-- PROYECTO 3: RECOMENDACIÓN -->
   <div class="project">
     <div class="project-top">
       <div>
-        <div class="project-number">CASO 02</div>
+        <div class="project-number">CASO 03</div>
         <div class="project-title">Sistema de recomendación de productos en retail</div>
         <p class="project-summary">Identificación de productos que se compran juntos mediante market basket analysis, para generar recomendaciones por producto.</p>
       </div>
@@ -547,108 +596,9 @@
           <span class="finding">Los patrones de co-compra son estables entre muestras, aunque débiles en fuerza de asociación</span>
         </div>
         <div class="btn-group">
-          <a href="https://github.com/claudiogaytan28/product-recommendation-system/tree/main" target="_blank" class="btn btn-solid">Resumen ejecutivo →</a>
-          <a href="https://github.com/claudiogaytan28/product-recommendation-system/blob/main/02_product_recommendation_system.ipynb" target="_blank" class="btn">Ver notebook (GitHub) →</a>
-          <a href="https://nbviewer.org/github/claudiogaytan28/product-recommendation-system/blob/main/02_product_recommendation_system.ipynb" target="_blank" class="btn-nbviewer">Ver notebook (nbviewer) →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROYECTO 3 -->
-  <div class="project">
-    <div class="project-top">
-      <div>
-        <div class="project-number">CASO 03</div>
-        <div class="project-title">Impacto de promociones en volumen de venta</div>
-        <p class="project-summary">Evaluación estadística del efecto real de campañas promocionales frente a la venta orgánica esperada.</p>
-      </div>
-      <div class="project-thumb">
-        <svg viewBox="0 0 130 90" xmlns="http://www.w3.org/2000/svg">
-          <rect x="15" y="50" width="14" height="30" fill="#F7F7F5" opacity="0.5"/>
-          <rect x="40" y="35" width="14" height="45" fill="#F7F7F5" opacity="0.7"/>
-          <rect x="65" y="20" width="14" height="60" fill="#F7F7F5"/>
-          <rect x="90" y="45" width="14" height="35" fill="#F7F7F5" opacity="0.6"/>
-        </svg>
-      </div>
-    </div>
-    <div class="project-body">
-      <div class="project-grid">
-        <div>
-          <div class="grid-label">Problema</div>
-          <div class="grid-text">¿Las promociones generan ventas incrementales o solo adelantan consumo?</div>
-        </div>
-        <div>
-          <div class="grid-label">Método</div>
-          <div class="grid-text">Comparación pre/post, prueba de hipótesis, control de variables estacionales.</div>
-        </div>
-        <div>
-          <div class="grid-label">Herramientas</div>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">scipy</span>
-            <span class="tag">statsmodels</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-footer">
-        <div>
-          <span class="finding-label">Hallazgo principal</span>
-          <span class="finding">Solo el 40% del incremento es venta neta incremental</span>
-        </div>
-        <div class="btn-group">
-          <a href="#" class="btn btn-solid">Resumen ejecutivo →</a>
-          <a href="#" class="btn">Ver notebook →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROYECTO 4 -->
-  <div class="project">
-    <div class="project-top">
-      <div>
-        <div class="project-number">CASO 04</div>
-        <div class="project-title">Detección de anomalías en inventario</div>
-        <p class="project-summary">Identificación de patrones atípicos en niveles de inventario que anticipan quiebres de stock.</p>
-      </div>
-      <div class="project-thumb">
-        <svg viewBox="0 0 130 90" xmlns="http://www.w3.org/2000/svg">
-          <line x1="10" y1="45" x2="120" y2="45" stroke="#F7F7F5" stroke-width="1" opacity="0.4"/>
-          <circle cx="30" cy="48" r="3" fill="#F7F7F5" opacity="0.5"/>
-          <circle cx="55" cy="42" r="3" fill="#F7F7F5" opacity="0.5"/>
-          <circle cx="80" cy="20" r="5" fill="#F7F7F5"/>
-          <circle cx="100" cy="47" r="3" fill="#F7F7F5" opacity="0.5"/>
-        </svg>
-      </div>
-    </div>
-    <div class="project-body">
-      <div class="project-grid">
-        <div>
-          <div class="grid-label">Problema</div>
-          <div class="grid-text">¿Se pueden anticipar quiebres de stock antes de que ocurran?</div>
-        </div>
-        <div>
-          <div class="grid-label">Método</div>
-          <div class="grid-text">Análisis de outliers, umbrales estadísticos dinámicos, visualización de series temporales.</div>
-        </div>
-        <div>
-          <div class="grid-label">Herramientas</div>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">numpy</span>
-            <span class="tag">plotly</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-footer">
-        <div>
-          <span class="finding-label">Hallazgo principal</span>
-          <span class="finding">Anticipación promedio de 6 días antes del quiebre</span>
-        </div>
-        <div class="btn-group">
-          <a href="#" class="btn btn-solid">Resumen ejecutivo →</a>
-          <a href="#" class="btn">Ver notebook →</a>
+          <a href="https://github.com/claudiogaytan28/product-recommendation-system" target="_blank" class="btn btn-solid">Resumen ejecutivo →</a>
+          <a href="https://github.com/claudiogaytan28/product-recommendation-system/blob/main/03_product_recommendation_system.ipynb" target="_blank" class="btn">Ver notebook (GitHub) →</a>
+          <a href="https://nbviewer.org/github/claudiogaytan28/product-recommendation-system/blob/main/03_product_recommendation_system.ipynb" target="_blank" class="btn-nbviewer">Ver notebook (nbviewer) →</a>
         </div>
       </div>
     </div>
